@@ -1,0 +1,99 @@
+body 
+{
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	background: #FCFCFC url(../images/bg.jpg) repeat;
+	margin: 0px;
+	padding: 0px;
+	color: #555555;
+
+	font-size: 15px;
+	line-height: 15px;
+}
+
+.static-width
+{
+	width: 1000px;	
+	margin: 0px auto;
+}
+
+.menu-item 
+{
+	font-size: 15px;
+	margin: 0;
+	padding: 0 10px;
+
+	display: inline-block;
+
+	color: rgb(210, 210, 210);
+
+	cursor: pointer;
+}
+
+.menu-item.active
+{
+	background-color: #222;
+}
+
+.menu-item:hover
+{
+	color:#FFF;
+}
+
+.label
+{
+	cursor: pointer;
+
+	font-size: 15px;
+	line-height: 15px;
+
+	vertical-align: middle;
+	display: inline-block;
+
+	padding: 8px;
+	background-color: rgb(92, 97, 102);
+}
+
+.label:hover
+{
+	background-color: #333;
+}
+
+.radius
+{
+	border-radius:.325em;
+}
+
+.button
+{
+	display: inline-block;
+	font-size: 17px;
+	line-height: 17px;
+	color: #FFF;
+	font-weight: bold;
+
+	padding: 20px;
+
+	cursor: pointer;
+
+	background-color: rgb(90,95,100);
+}
+
+.button:hover
+{
+	background-color: rgb(73,73,73);
+}
+
+.button-red
+{
+	background-color: rgb(210,89,89);
+}
+
+.button-red:hover
+{
+	background-color: rgb(222,84,85);
+}
+
+.button img
+{
+	vertical-align: middle;
+}

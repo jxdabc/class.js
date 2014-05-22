@@ -1,0 +1,48 @@
+#nav
+{
+	height: 40px;
+	background-color: #333;
+	opacity: 0.95;
+
+	position: fixed;
+	width: 100%;
+
+	line-height: 40px;
+}
+
+#logo
+{
+	color: #FFF;
+
+	font-size: 16px;
+
+	margin-right: 20px;
+
+	float:left;
+}
+
+#summary
+{
+	padding-top: 80px;
+	padding-bottom: 40px;
+
+	background-color: rgb(0,181,173);
+}
+
+#project-name
+{
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 75px;
+	line-height: 75px;
+	color:#FFF;
+	font-weight: bold;
+}
+
+#slogan
+{
+	color: rgb(229, 229, 229);
+	font-size: 23px;
+	line-height: 23px;
+
+	padding: 30px 0;
+}
