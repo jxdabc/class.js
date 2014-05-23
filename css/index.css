@@ -46,3 +46,22 @@
 
 	padding: 30px 0;
 }
+
+#compatible_list
+{
+	padding: 20px 0;
+	color: #FFF;
+}
+
+#compatible_list .compatible_icon
+{
+	vertical-align: middle;
+	margin-left:15px;
+	width: 55px;
+	height: 55px;
+}
+
+#compatible_list #nodejs_icon
+{
+	width: 160px;
+}
