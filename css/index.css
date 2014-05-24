@@ -65,3 +65,9 @@
 {
 	width: 160px;
 }
+
+#origin .content .point
+{
+	font-style: normal;
+	text-decoration: underline;
+}

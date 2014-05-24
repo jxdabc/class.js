@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>class.js | Make JavaScript fully intuitively object-oriented to support large scale programming.</title>
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700" rel="stylesheet" type="text/css">
+		<link href="css/fontface.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="css/common.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<script type="text/javascript" src="js/index.js"></script>
@@ -31,8 +31,35 @@
 					<img class="compatible_icon" src="images/safari.png"></img> safari
 					<img id="nodejs_icon" class="compatible_icon" src="images/nodejs.png"></img> node.js
 				</div>
+			</div>
+		</div>
+		<div id ="origin" class="block static-width radius">
+			<div class="title">
+				<h5>THE ORIGIN</h5>
+				<p>Why we are woring on this project. </p>
+			</div>
+			<div class="content">
+				<p>JavaScript is good at rapid developing of web UI behavior and developing of high performance server-side application, thanks to its flexible function-oriented programming style and non-block single thread model with task queue. But when talking about object-oriented programming, most developers are not satisfied with the constructor/prototype object model of the language. </p>
+
+				<p>We suffered a lot from the limited ability of the language to intuitively/naturally describe some important object-oriented concepts and patterns when we were porting a desktop version direct UI library in C++ to web version in JavaScript recently. These concepts and patterns had to be implemented via various work-around due to the limited describing ability of the constructor/prototype model, which nearly drived us mad. </p>
+
+				<p>Constructor/prototype model is lack of many important object-oriented concepts, such as <span class="point">private properties and methods</span>, <span class="point">an independent parent part for individual objects</span> (that is, each objects of the same class that is derived from a specific parent class cannot have its own parent part, which may be constructed with different initializing parameters, since they share the same parent object called the prototype, which is constructed fairly early), <span class="point">accessing parent class methods which are overridden by a derived class method</span>, <span class="point">multi-inheritance*</span>, <span class="point">static property and method scopes</span> (which means a parent class static member cannot be accessed through a derived class), <span class="point">inner classes</span> and so on. </p>
+
+				<p>Efforts were made to address those issues by developers, such as simulating private member behaviors using closure scopes which really works and is widely used, constructing objects by directly calling constructors instead of using a <i>new</i> operator which brings multi-inheritance ability to the language and makes parent parts of individual objects independent but makes overridden methods no longer accessible as a side effect, and so on. Unfortunately, no one so far has an idea about how to make JavaScript completely an intuitive object-oriented language and no one so far knows a way to address all the issues mentioned above. </p>
+
+				<p>We are working hard here trying to make JavaScript fully intuitively objected-oriented by going on a brand-new way.</p>
+			</div>
+		</div>
+
+		<div id ="origin" class="block darken static-width radius">
+			<div class="title">
+				<h5>THE BASICS</h5>
+				<p>How class.js tastes. Class, instace properties, instance methods and static members. </p>
+			</div>
+			<div class="content">
 				
 			<div>
 		</div>
+
 	</body>
 </html>
