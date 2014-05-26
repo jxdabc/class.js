@@ -5,8 +5,19 @@
 		<title>class.js | Make JavaScript fully intuitively object-oriented to support large scale programming.</title>
 		<link href="css/fontface.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="css/common.css">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
+
+		<script type="text/javascript" src="js/jQuery.js"></script>
+
+		<script type="text/javascript" src="js/syntaxhighlighter/shCore.js"></script>
+		<script type="text/javascript" src="js/syntaxhighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="js/syntaxhighlighter/shBrushCpp.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter/shCore.css">
+		<link type="text/css" rel="stylesheet" href="css/syntaxhighlighter/shThemeEmacs.css">
+
 		<script type="text/javascript" src="js/index.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+
+		<script type="text/javascript" src="js/code.js"></script>
 	</head>
 	<body>
 		<div id="nav">
@@ -24,12 +35,12 @@
 				<a class="button radius button-red">DOWNLOAD NOW</a>
 				<div id="compatible_list">
 					COMPATIBLE WITH: 
-					<img class="compatible_icon" src="images/ie9.png"></img> IE9+
-					<img class="compatible_icon" src="images/chrome.png"></img> chrome
-					<img class="compatible_icon" src="images/firefox.png"></img> firefox
-					<img class="compatible_icon" src="images/opera.png"></img> opera
-					<img class="compatible_icon" src="images/safari.png"></img> safari
-					<img id="nodejs_icon" class="compatible_icon" src="images/nodejs.png"></img> node.js
+					<img class="compatible_icon" src="images/ie9_small.png"></img> IE9+
+					<img class="compatible_icon" src="images/chrome_small.png"></img> chrome
+					<img class="compatible_icon" src="images/firefox_small.png"></img> firefox
+					<img class="compatible_icon" src="images/opera_small.png"></img> opera
+					<img class="compatible_icon" src="images/safari_small.png"></img> safari
+					<img id="nodejs_icon" class="compatible_icon" src="images/nodejs_small.png"></img> node.js
 				</div>
 			</div>
 		</div>
@@ -43,7 +54,7 @@
 
 				<p>We suffered a lot from the limited ability of the language to intuitively/naturally describe some important object-oriented concepts and patterns when we were porting a desktop version direct UI library in C++ to web version in JavaScript recently. These concepts and patterns had to be implemented via various work-around due to the limited describing ability of the constructor/prototype model, which nearly drived us mad. </p>
 
-				<p>Constructor/prototype model is lack of many important object-oriented concepts, such as <span class="point">private properties and methods</span>, <span class="point">an independent parent part for individual objects</span> (that is, each objects of the same class that is derived from a specific parent class cannot have its own parent part, which may be constructed with different initializing parameters, since they share the same parent object called the prototype, which is constructed fairly early), <span class="point">accessing parent class methods which are overridden by a derived class method</span>, <span class="point">multi-inheritance*</span>, <span class="point">static property and method scopes</span> (which means a parent class static member cannot be accessed through a derived class), <span class="point">inner classes</span> and so on. </p>
+				<p>Constructor/prototype model is lack of many important object-oriented concepts, such as <span class="point">private properties and methods</span>, <span class="point">an independent parent part for individual objects</span> (that is, each objects of the same class that is derived from a specific parent class cannot have its own parent part, which may be constructed with different initializing arguments, since they share the same parent object called the prototype, which is constructed fairly early), <span class="point">accessing parent class methods which are overridden by a derived class method</span>, <span class="point">multi-inheritance*</span>, <span class="point">static property and method scopes</span> (which means a parent class static member cannot be accessed through a derived class), <span class="point">inner classes</span> and so on. </p>
 
 				<p>Efforts were made to address those issues by developers, such as simulating private member behaviors using closure scopes which really works and is widely used, constructing objects by directly calling constructors instead of using a <i>new</i> operator which brings multi-inheritance ability to the language and makes parent parts of individual objects independent but makes overridden methods no longer accessible as a side effect, and so on. Unfortunately, no one has an idea so far about how to make JavaScript completely an intuitive object-oriented language and no one knows a way so far to address all the issues mentioned above. </p>
 
@@ -57,8 +68,22 @@
 				<p>How class.js tastes. Class, instace properties, instance methods and static members. </p>
 			</div>
 			<div class="content">
-				
-			<div>
+				<div class="clearfix">
+					<p>Class.js describes basic object-oriented concepts, such as class, instance members and static members, in a quite straight-forward way. It describes those concepts in a natural and intuitive way as languages that own strong object-oriented describing ability, such as C++ and Java, do. </p>
+					<p>Here comes what C++ and class.js looks like when describing a same story. </p>
+					<div class="left-code code" >
+						<div class="des">C++ flavor</div>
+						<pre class="brush:cpp" data-code="code/basics_cpp.txt">
+						</pre>
+					</div>
+					<div class="right-code code">
+						<div class="des">JavaScript flavor</div>
+						<pre class="brush:js" data-code="code/basics_js.txt">
+						</pre>
+					</div>
+				</div>
+			</div>
+
 		</div>
 
 	</body>

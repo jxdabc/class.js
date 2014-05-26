@@ -202,6 +202,35 @@ body
 
 .block .content
 {
-	text-transform: ;
+	text-shadow:none;
 	padding: 15px 10px; 
+	color: #000;
+}
+
+.code
+{
+	font-size: 12px;
+	text-shadow: none;
+}
+
+.code .des
+{
+	text-align: right;
+	font-weight: bold;
+	color: rgb(153,0,0);
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
 }

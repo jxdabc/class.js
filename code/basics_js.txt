@@ -1,0 +1,99 @@
+
+// class declaration. 
+$CLASS('ClassDotJS', function(me, SELF){
+
+	// public instance method declarations. 
+	$PUBLIC_FUN([
+		'sayHello',	
+		'sayGoodBye',
+	]);
+
+	 // public instance property declarations 
+	 // and initializations. 
+	 $PUBLIC_VAR({
+	 	'time' : 'morning',
+	 	'name' : 'blabla',
+	 }); 
+
+	// private instance property declarations
+	// and initializations.  
+    var m_hello_count = 1; 
+    var m_bye_count = 1; 
+
+    // public instance method definitions
+    $PUBLIC_FUN_IMPL('sayHello', function(){
+
+    	// static members are accessed by class
+    	// name (here, ClassDotJS) or 'SELF'.
+    	// public members are accessed by 'me'.
+    	// private members are accessed directly.
+
+    	console.log(SELF.getHelloWords(
+    		me.time, me.name, m_hello_count));
+    	addHelloCountBy(1);
+    });
+
+    $PUBLIC_FUN_IMPL('sayGoodBye', function(){
+
+    	// static members are accessed by class
+    	// name (here, ClassDotJS) or 'SELF'.
+    	// public members are accessed by 'me'.
+    	// private members are accessed directly.
+
+    	console.log(ClassDotJS.getByeWords(
+    		me.name, m_bye_count));
+    	addByeCountBy(1);
+    });
+
+    // private instance method declarations
+    // and definitions.  
+    function addHelloCountBy(step) {
+    	m_hello_count += step;
+    } 
+
+
+    function addByeCountBy(step) {
+    	m_bye_count += step;
+    } 
+})
+// static method declarations.
+.$STATIC_FUN([
+	'getHelloWords',
+	'getByeWords',
+])
+// static property declarations
+// and initializations. 
+.$STATIC_VAR({
+	'hello_words' 	: 'Good %, %! Welcomed % time(s).',
+	'bye_words' 	: 'Goodbye, %! Goodbye % time(s). ',
+})
+// static method declarations
+// and definitions. 
+.$STATIC_FUN_IMPL('getHelloWords', function(
+	time, name, count){
+	var c = 0;
+	var arg = arguments;
+	return ClassDotJS.hello_words.replace(/%/g,	
+		function(){
+			return arg[c++];
+		});
+})
+.$STATIC_FUN_IMPL('getByeWords', function(
+	name, count){
+	var c = 0;
+	var arg = arguments;
+	return ClassDotJS.bye_words.replace(/%/g,
+		function(){
+			return arg[c++];
+		});
+});
+
+// instantiation and member access. 
+var instance = new ClassDotJS();
+instance.name = 'Leo';
+instance.time = 'afternoon';
+instance.sayHello();
+instance.sayHello();
+instance.sayGoodBye();
+
+console.log (ClassDotJS.bye_words);

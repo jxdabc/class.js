@@ -1,0 +1,110 @@
+#include <string>
+#include <iostream>
+
+class ClassDotJS
+{
+public:
+	// public instance method declarations.
+	void sayHello();
+	void sayGoodBye();
+
+	// public instance property declarations. 
+	std::string time;
+	std::string name;
+
+private:
+	// private instance property declarations. 
+	int m_hello_count;
+	int m_bye_count;
+
+	// private instance method declarations. 
+	void addHelloCountBy(int step);
+	void addByeCountBy(int step);
+
+public:
+	// static property declarations.  
+	static std::string hello_words;
+	static std::string bye_words;
+
+	// static method declarations.
+	static std::string getHelloWords(
+		const std::string & time,
+		const std::string & name, int count);
+	static std::string getByeWords(
+		const std::string & name, int count);
+
+public:
+	ClassDotJS ();
+};
+
+ClassDotJS::ClassDotJS() : 
+	// public and private instance property 
+	// initializations. 
+	time("morning"), name("blabla"), 
+	m_hello_count(1), m_bye_count(1) 
+{}
+
+// static property initializations.
+std::string ClassDotJS::hello_words
+	("Good %s, %s! Welcomed %d time(s). ");
+std::string ClassDotJS::bye_words
+	("Goodbye, %s! Goodbye %d time(s). ");
+
+// public instance method definitions. 
+void ClassDotJS::sayHello() 
+{ 
+	std::cout << 
+		getHelloWords(time, name, m_hello_count)
+		<< std::endl; 
+	addHelloCountBy(1);
+}
+
+void ClassDotJS::sayGoodBye()
+{
+	std::cout <<
+		getByeWords(name, m_bye_count) 
+		<< std::endl;
+	addByeCountBy(1);
+}
+
+// private instance method definitions. 
+void ClassDotJS::addHelloCountBy(int step) 
+{m_hello_count += step;}
+void ClassDotJS::addByeCountBy(int step) 
+{m_bye_count += step;}
+
+// static method definitions. 
+std::string ClassDotJS::getHelloWords(
+	const std::string & time,
+	const std::string & name, int count)
+{
+	char buf[512];
+	sprintf(buf, ClassDotJS::hello_words.c_str(),
+		time.c_str(), name.c_str(), count);
+	return buf;
+}
+
+std::string ClassDotJS::getByeWords(
+	const std::string & name, int count)
+{
+	char buf[512];
+	sprintf(buf, ClassDotJS::bye_words.c_str(),
+		name.c_str(), count);
+	return buf;
+}
+
+int main()
+{
+	// instantiation and member access. 
+	ClassDotJS * instance = new ClassDotJS();
+	instance->name = "Leo";
+	instance->time = "afternoon";
+	instance->sayHello();
+	instance->sayHello();
+	instance->sayGoodBye();
+
+	std::cout << ClassDotJS::bye_words << std::endl;
+
+	return 0;
+}
+

@@ -2,7 +2,9 @@
 {
 	height: 40px;
 	background-color: #333;
+	filter: alpha(opacity=95);
 	opacity: 0.95;
+
 
 	position: fixed;
 	width: 100%;
@@ -72,4 +74,16 @@
 {
 	font-style: normal;
 	text-decoration: underline;
+}
+
+.left-code
+{
+	float: left;
+	width: 480px;
+}
+
+.right-code
+{
+	float: right;
+	width: 480px;
 }
