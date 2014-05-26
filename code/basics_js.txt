@@ -8,12 +8,12 @@ $CLASS('ClassDotJS', function(me, SELF){
 		'sayGoodBye',
 	]);
 
-	 // public instance property declarations 
-	 // and initializations. 
-	 $PUBLIC_VAR({
-	 	'time' : 'morning',
-	 	'name' : 'blabla',
-	 }); 
+	// public instance property declarations 
+	// and initializations. 
+	$PUBLIC_VAR({
+		'time' : 'morning',
+		'name' : 'blabla',
+	}); 
 
 	// private instance property declarations
 	// and initializations.  
