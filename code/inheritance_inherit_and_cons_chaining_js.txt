@@ -1,0 +1,89 @@
+// namespace class. 
+$CLASS('DEMO', function(me, SELF){
+});
+
+// a base class. 
+$CLASS('DEMO.Writer', function(me, SELF){
+	
+	$PUBLIC_FUN([
+		'write'
+	]);
+
+	$CONSTRUCTOR(function(first_name, last_name){
+		m_first_name = first_name;
+		m_last_name = last_name;
+	});
+
+	$PUBLIC_FUN_IMPL('write', function(){
+		console.log('bla, bla, bla, wrote by ' 
+			+ m_first_name + ' ' + m_last_name);
+	});
+
+	var m_first_name;
+	var m_last_name;
+});
+
+// another base class.
+$CLASS('DEMO.Singer', function(me, SELF){
+	
+	$PUBLIC_FUN([
+		'sing',
+	]);
+
+	$CONSTRUCTOR(function(first_name, last_name){
+		m_first_name = first_name;
+		m_last_name = last_name;
+	});
+
+	$PUBLIC_FUN_IMPL('sing', function(){
+		console.log('bla~, bla~, bla~, sung by ' 
+			+ m_first_name + ' ' + m_last_name);
+	});
+
+	var m_first_name;
+	var m_last_name;
+});
+
+// a class derived from DEMO.Writer and DEMO.Singer.
+// quite easy, right? :)
+// note that a class named DEMO.Writer and a class
+// named DEMO.Singer are expected to exist before this
+// class definition is encountered. 
+$CLASS('DEMO.PopStar',
+$EXTENDS(DEMO.Writer, DEMO.Singer),
+function(me, SELF){
+
+	$PUBLIC_FUN([
+		'writeAndSing',
+	]);
+
+	$CONSTRUCTOR(function(first_name, last_name){
+		m_first_name = first_name;
+		m_last_name = last_name;
+	});
+
+	// when constructing an object of a class, the parent parts of the object are
+	// constructed first. Thus, the constructors of the parent
+	// classes are called before the constructor of this class is called. 
+	// constructor chaining is described as follow, the 
+	// first parameter accepts the arguments you want to provide
+	// to the constructors of the parent classes. The following parameters are 
+	// arguments that are provided to the constructor of this class. 
+	$PARENT_CONSTRUCTOR(function(chains, first_name, last_name){
+		chains['DEMO.Writer'] = [first_name + '.WT', last_name];
+		chains['DEMO.Singer'] = [first_name + '.SG', last_name];
+	});
+
+	$PUBLIC_FUN_IMPL('writeAndSing', function(){
+		console.log('Hi, my name is ' 
+			+ m_first_name + ' ' + m_last_name);
+		me.write();
+		me.sing();
+	});
+
+	var m_first_name;
+	var m_last_name;
+});
+
+var star = new DEMO.PopStar('Leo', 'Trol');
+star.writeAndSing();

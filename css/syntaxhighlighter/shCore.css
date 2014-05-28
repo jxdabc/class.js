@@ -58,6 +58,10 @@
   position: relative !important;
   overflow: auto !important;
   font-size: 1em !important;
+
+  -webkit-border-radius: .325em;
+  -moz-border-radius: .325em;
+  border-radius:.325em;
 }
 .syntaxhighlighter.source {
   overflow: hidden !important;
@@ -192,6 +196,10 @@
 }
 .syntaxhighlighter.printing .keyword {
   color: #006699 !important;
+  font-weight: bold !important;
+}
+.syntaxhighlighter.printing .classdotjs-keyword {
+  color: rgb(249, 38, 114) !important;
   font-weight: bold !important;
 }
 .syntaxhighlighter.printing .preprocessor {

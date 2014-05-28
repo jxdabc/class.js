@@ -52,9 +52,9 @@
 			<div class="content">
 				<p>JavaScript is good at rapid developing of web UI behavior and developing of high performance server-side application, thanks to its flexible function-oriented programming style and non-block single thread model with task queue. But when talking about object-oriented programming, most developers are not satisfied with the constructor/prototype object model of the language. </p>
 
-				<p>We suffered a lot from the limited ability of the language to intuitively/naturally describe some important object-oriented concepts and patterns when we were porting a desktop version direct UI library in C++ to web version in JavaScript recently. These concepts and patterns had to be implemented via various work-around due to the limited describing ability of the constructor/prototype model, which nearly drived us mad. </p>
+				<p>We suffered a lot from the limited ability of the language to intuitively/naturally describe some important object-oriented concepts and patterns when we were porting a desktop version direct UI library in C++ to a web version in JavaScript recently. These concepts and patterns had to be implemented via various work-around due to the limited describing ability of the constructor/prototype model, which nearly drived us mad. </p>
 
-				<p>Constructor/prototype model is lack of many important object-oriented concepts, such as <span class="point">private properties and methods</span>, <span class="point">an independent parent part for individual objects</span> (that is, each objects of the same class that is derived from a specific parent class cannot have its own parent part, which may be constructed with different initializing arguments, since they share the same parent object called the prototype, which is constructed fairly early), <span class="point">accessing parent class methods which are overridden by a derived class method</span>, <span class="point">multi-inheritance*</span>, <span class="point">static property and method scopes</span> (which means a parent class static member cannot be accessed through a derived class), <span class="point">inner classes</span> and so on. </p>
+				<p>Constructor/prototype model is lack of many important object-oriented concepts, such as <span class="point">private properties and methods</span>, <span class="point">an independent parent part for individual objects</span> (that is, each object of the same class that is derived from a specific parent class cannot have its own parent part, which may be constructed with different initializing arguments, since they share the same parent object called the prototype, which is constructed fairly early), <span class="point">accessing parent class methods which are overridden by a derived class method</span>, <span class="point">multi-inheritance*</span>, <span class="point">static property and method scopes</span> (which means a parent class static member cannot be accessed through a derived class), <span class="point">inner classes</span> and so on. </p>
 
 				<p>Efforts were made to address those issues by developers, such as simulating private member behaviors using closure scopes which really works and is widely used, constructing objects by directly calling constructors instead of using a <i>new</i> operator which brings multi-inheritance ability to the language and makes parent parts of individual objects independent but makes overridden methods no longer accessible as a side effect, and so on. Unfortunately, no one has an idea so far about how to make JavaScript completely an intuitive object-oriented language and no one knows a way so far to address all the issues mentioned above. </p>
 
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 
-		<div id ="origin" class="block darken static-width radius">
+		<div id ="basics" class="block darken static-width radius">
 			<div class="title">
 				<h5>THE BASICS</h5>
 				<p>How class.js tastes. Class, instace properties, instance methods and static members. </p>
@@ -70,20 +70,87 @@
 			<div class="content">
 				<div class="clearfix">
 					<p>Class.js describes basic object-oriented concepts, such as class, instance members and static members, in a quite straight-forward way. It describes those concepts in a natural and intuitive way as languages that own strong object-oriented describing ability, such as C++ and Java, do. </p>
+
 					<p>Here comes what C++ and class.js looks like when describing a same story. </p>
 					<div class="left-code code" >
 						<div class="des">C++ flavor</div>
-						<pre class="brush:cpp" data-code="code/basics_cpp.txt">
-						</pre>
+						<pre class="brush:cpp" data-code="code/basics_cpp.txt"></pre>
 					</div>
 					<div class="right-code code">
 						<div class="des">JavaScript flavor</div>
-						<pre class="brush:js" data-code="code/basics_js.txt">
-						</pre>
+						<pre class="brush:js" data-code="code/basics_js.txt"></pre>
 					</div>
 				</div>
 			</div>
+		</div>
 
+		<div id ="namespace" class="block darken static-width radius">
+			<div class="title">
+				<h5>Namespace</h5>
+				<p>Program the world!</p>
+			</div>
+			<div class="content">
+				<div class="clearfix">
+					<p>Class.js describes namespaces in a concise and intuitive way. </p>
+					<p></p>
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/namespace_js.txt"></pre>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id ="inheritance" class="block darken static-width radius">
+			<div class="title">
+				<h5>Inheritance</h5>
+				<p>The most complicated kid in the object-oriented world and the most concise task in class.js. </p>
+			</div>
+			<div class="content">
+				<div class="clearfix">
+					<p>Inheritance makes life tough, because it brings a lot of complexity to the object-oriented world. Those include <span class="point">instance method polymorphism and instance property stability</span> (the method with the expected name in the most derived class will be called whenever a method call is made with a name but property accessing with a name in a class will always access the property declared in that class or its base classes no matter whether there is a derived class that declares a property with the same name), <span class="point">constructor chaining</span> (derived classes are responsible for providing arguments to parent classes when constructing instances), <span class="point">parent part accessing</span> (which makes overridden methods and properties shadowed with same-name properties in derived classes accessible), <span class="point">static scopes</span> (which means a static member declared in a parent class can be accessed through its derived classes), <span class="point">multi-inheritance</span> and so on. </p>
+
+					<p>But here, class.js makes all those tasks easy. Everything here is just right, natural and intuitive as you expect!</p>
+
+					<div class="subtitle">Easy inheritance and constructor chaining. </div>
+
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/inheritance_inherit_and_cons_chaining_js.txt"></pre>
+					</div>
+
+					<div class="subtitle">Instance method polymorphism and instance property stability</div>
+					
+					<p>Common object-oriented sense requires instance method polymorphism and instance property stability, which means the method with the expected name in the most derived class will be called whenever a method call is made with a name but property accessing with a name in a class will always access the property declared in that class or its base classes no matter whether there is a derived class that declares a property with the same name.</p>
+
+					<p>Those requirements are respected in class.js to make it smooth to use.</p>
+
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/inheritance_polymorphism_and_stability_js.txt"></pre>
+					</div>
+
+					<div class="subtitle">Parent part accessing</div>
+					<p>Parent part accessing is widely used in object-oriented programming to access overridden methods and properties shadowed with same-name properties in derived classes. </p>
+
+					<p>Parent part accessing is surely also an easy task.</p>
+
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/inheritance_parent_part_accessing_js.txt"></pre>
+					</div>
+
+					<div class="subtitle">Static scopes</div>
+					<p>A static member declared in a parent class can be accessed through its derived classes. That is also a widely used part of common object-oriented sense. </p>
+					<p>Class.js goes one step further. All the names in a class namespace scope, including static members, other classes and other namespaces, are accessible through a derived class of this class. Note that this accessibility does not mean a simple copy of all the names in a class to all its derived classes. Modifies through derived classes are accessible through parent classes, too. And vice versa. </p>
+
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/inheritance_static_scopes_js.txt"></pre>
+					</div>
+ 
+				</div>
+			</div>
 		</div>
 
 	</body>

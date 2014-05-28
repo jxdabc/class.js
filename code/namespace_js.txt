@@ -1,0 +1,36 @@
+// a class in global namespace. 
+$CLASS('ClassDotJS', function(me, SELF){
+});
+
+// a class in ClassDotJS namespace. 
+// note that a class or object called ClassDotJS
+// should exist before this class definition is encountered. 
+$CLASS('ClassDotJS.ThinkBig', function(me, SELF){
+});
+
+// a class in ClassDotJS namespace. 
+// note that a class or object called ClassDotJS
+// should exist before this class definition is encountered. 
+$CLASS('ClassDotJS.ThinkSimple', function(me, SELF){
+});
+
+// a class in ClassDotJS.ThinkSimple namespace. 
+// note that a class or object called ClassDotJS.ThinkSimple
+// should exist before this class definition is encountered. 
+$CLASS('ClassDotJS.ThinkSimple.BeIntuitive', function(me, SELF){
+});
+
+
+// a class in ClassDotJS.ThinkSimple namespace. 
+// note that a class or object called ClassDotJS.ThinkSimple
+// should exist before this class definition is encountered. 
+$CLASS('ClassDotJS.ThinkSimple.BeConcise', function(me, SELF){
+});
+
+// all classes defined above can be used in the way you think
+// them be used in.  
+var o 		= new ClassDotJS();
+var oo 		= new ClassDotJS.ThinkBig();
+var ooo 	= new ClassDotJS.ThinkSimple();
+var oooo 	= new ClassDotJS.ThinkSimple.BeIntuitive();
+var ooooo 	= new ClassDotJS.ThinkSimple.BeConcise();

@@ -1,0 +1,18 @@
+// namespace class.   
+$CLASS('DEMO', function(me, SELF){  
+});  
+
+// a base class
+$CLASS('DEMO.SimpleMath', function(me, SELF){ 
+})
+.$STATIC_VAR({
+	'PI' : 3.14, 
+}); 
+
+$CLASS('DEMO.SimpleMath.Point', function(me, SELF){
+
+});
+
+// a derived class
+$CLASS('DEMO.ComplexMath', function(me, SELF){ 
+});

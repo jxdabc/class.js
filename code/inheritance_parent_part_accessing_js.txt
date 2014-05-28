@@ -1,0 +1,63 @@
+// namespace class.  
+$CLASS('DEMO', function(me, SELF){ 
+}); 
+
+// a base class. 
+$CLASS('DEMO.Clock', function(me, SELF){
+	$PUBLIC_FUN([
+		'synchronize',
+	]);
+
+	$PUBLIC_VAR({
+		'clock' : '00:00',
+	});
+
+	$PUBLIC_FUN_IMPL('synchronize', function(){
+		var time = new Date();
+		var h = time.getHours() + '';
+		var m =	time.getMinutes() + '';
+		h = h.length < 2 ? 0 + 'h' : h;
+		m = h.length < 2 ? 0 + 'm' : m;
+		me.clock = h + ':' + m;
+		return time;
+	});
+});
+
+// a derived class. 
+$CLASS('DEMO.FineClock', 
+$EXTENDS(DEMO.Clock),
+function(me, SELF){
+	$PUBLIC_FUN([
+		'synchronize',
+	]);
+
+	$PUBLIC_VAR({
+		'clock' : '00:00:00',
+	});
+
+	$PUBLIC_FUN_IMPL('synchronize', function(){
+		// accessing synchronize of DEMO.Clock
+		// which is overridden by this method. 
+		var time = 
+			me.$PARENT(DEMO.Clock).synchronize();
+
+		// accessing clock of DEMO.Clock
+		// which is shadowed by clock of
+		// this class. 
+		var simple_clock = 
+			me.$PARENT(DEMO.Clock).clock; 
+
+		var s = time.getSeconds() + '';
+		s = s.length < 2 ? '0' + s : s;
+		me.clock = simple_clock + ':' + s;
+
+		return time;
+	});
+});
+
+var fine_clock = new DEMO.FineClock();
+fine_clock.synchronize();
+// accessing clock of DEMO.Clock which is shadowed by clock of
+// DEMO.FineClock. 
+console.log('clock: ', fine_clock.$PARENT(DEMO.Clock).clock);
+console.log('fine clock', fine_clock.clock);

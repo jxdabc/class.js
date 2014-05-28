@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 
+// class definition. 
 class ClassDotJS
 {
 public:
@@ -11,6 +12,10 @@ public:
 	// public instance property declarations. 
 	std::string time;
 	std::string name;
+
+public:
+	// constructor declaration. 
+	ClassDotJS ();
 
 private:
 	// private instance property declarations. 
@@ -32,11 +37,9 @@ public:
 		const std::string & name, int count);
 	static std::string getByeWords(
 		const std::string & name, int count);
-
-public:
-	ClassDotJS ();
 };
 
+// constructor definition. 
 ClassDotJS::ClassDotJS() : 
 	// public and private instance property 
 	// initializations. 
@@ -69,9 +72,9 @@ void ClassDotJS::sayGoodBye()
 
 // private instance method definitions. 
 void ClassDotJS::addHelloCountBy(int step) 
-{m_hello_count += step;}
+	{m_hello_count += step;}
 void ClassDotJS::addByeCountBy(int step) 
-{m_bye_count += step;}
+	{m_bye_count += step;}
 
 // static method definitions. 
 std::string ClassDotJS::getHelloWords(
@@ -107,4 +110,3 @@ int main()
 
 	return 0;
 }
-

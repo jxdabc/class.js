@@ -1,0 +1,81 @@
+// namespace class. 
+$CLASS('DEMO', function(me, SELF){
+});
+
+// a base class. 
+$CLASS('DEMO.Salesman', function(me, SELF){
+
+	$PUBLIC_FUN([
+		'makeDiscount',
+		'talkAboutPrice',
+	]);
+
+	$PUBLIC_VAR({
+		'words' : 'The price is $%.',
+		'price' : 0,
+	});
+
+	$PUBLIC_FUN_IMPL('makeDiscount', function(price){
+		return me.price * 1;
+	});
+
+	$PUBLIC_FUN_IMPL('talkAboutPrice', function(){
+		// private methods are not polymorphic.
+		// so, getMyWords here always refers to getMyWords of 
+		// DEMO.Salesman no matter whether there is a derived class 
+		// with a method of the same name of which the object used to 
+		// call talkAboutPrice is an instance.
+		console.log(getMyWords());
+	});
+
+	function getMyWords() {
+		// public methods are polymorphic.  
+		// so, me.makeDiscount refers to makeDiscount
+		// of the most derived class of which the object
+		// used to call getMyWords is an instance. 
+		// so, when called with a DEMO.DiscountSalesman object,
+		// me.makeDiscount here refers to makeDiscount of DEMO.DiscountSalesman. 
+		// 
+		// properties (no matter public or private) are stable.
+		// so, me.words here always refers to me.words of DEMO.Salesman
+		// no matter whether there is a derived class with a property of 
+		// the same name of which the object used to call getMywords is an instance.
+		return me.words.replace('%', 
+			me.makeDiscount(me.price) + '');
+	}
+});
+
+// a derived class. 
+$CLASS('DEMO.DiscountSalesman',
+$EXTENDS(DEMO.Salesman), 
+function(me, SELF){
+
+	$PUBLIC_FUN([
+		'makeDiscount',
+		'talkAboutDiscount',
+	]);
+
+	$PUBLIC_VAR({
+		'words' : 'I\'ll give you a % percent discount. ',
+	})
+
+	var m_discount = 0.95;
+
+	$PUBLIC_FUN_IMPL('makeDiscount', function(price){
+		return me.price * m_discount;
+	});
+
+	$PUBLIC_FUN_IMPL('talkAboutDiscount', function(){
+		console.log(getMyWords());
+	})
+
+	function getMyWords() {
+		return me.words.replace('%',
+			m_discount * 100 + '');
+	}
+});
+
+var discount_salesman = new DEMO.DiscountSalesman();
+discount_salesman.price = 100;
+discount_salesman.talkAboutDiscount();
+discount_salesman.talkAboutPrice();

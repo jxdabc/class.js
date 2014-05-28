@@ -82,6 +82,9 @@
 .syntaxhighlighter .keyword {
   color: aqua !important;
 }
+.syntaxhighlighter .classdotjs-keyword {
+  color: rgb(249, 38, 114) !important;
+}
 .syntaxhighlighter .preprocessor {
   color: #aec4de !important;
 }

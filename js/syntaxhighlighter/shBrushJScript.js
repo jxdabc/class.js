@@ -28,6 +28,9 @@
 						'this throw true try typeof var while with'
 						;
 
+		var classdotjs_keywords_reg = 
+			/(?:\$(?:CLASS|PUBLIC_FUN|PUBLIC_VAR|PUBLIC_FUN_IMPL|STATIC|STATIC_FUN|STATIC_VAR|STATIC_FUN_IMPL|CONSTRUCTOR|PARENT_CONSTRUCTOR)\b)|(?:\b(?:me|SELF)\b)/g
+
 		var r = SyntaxHighlighter.regexLib;
 		
 		this.regexList = [
@@ -36,8 +39,9 @@
 			{ regex: r.singleLineCComments,							css: 'comments' },			// one line comments
 			{ regex: r.multiLineCComments,							css: 'comments' },			// multiline comments
 			{ regex: /\s*#.*/gm,									css: 'preprocessor' },		// preprocessor tags like #region and #endregion
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }			// keywords
-			];
+			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' },			// keywords
+			{ regex: classdotjs_keywords_reg,						css: 'classdotjs-keyword' }	// class.js keywords
+		];
 	
 		this.forHtmlScript(r.scriptScriptTags);
 	};

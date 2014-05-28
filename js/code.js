@@ -6,7 +6,7 @@ $(function(){
 		var $e = $(e);
 		var url = $e.data('code');
 		$.get(url, function(code){
-			console.log(url, code);
+//			console.log(code);
 			$e.text(code);
 			SyntaxHighlighter.highlight(undefined, e);
 		});

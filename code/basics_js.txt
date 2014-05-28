@@ -1,5 +1,4 @@
-
-// class declaration. 
+// class definition. 
 $CLASS('ClassDotJS', function(me, SELF){
 
 	// public instance method declarations. 
@@ -15,6 +14,10 @@ $CLASS('ClassDotJS', function(me, SELF){
 		'name' : 'blabla',
 	}); 
 
+	// constructor declaration and definition. 
+	$CONSTRUCTOR(function(){
+	});
+
 	// private instance property declarations
 	// and initializations.  
     var m_hello_count = 1; 
@@ -27,7 +30,6 @@ $CLASS('ClassDotJS', function(me, SELF){
     	// name (here, ClassDotJS) or 'SELF'.
     	// public members are accessed by 'me'.
     	// private members are accessed directly.
-
     	console.log(SELF.getHelloWords(
     		me.time, me.name, m_hello_count));
     	addHelloCountBy(1);
@@ -39,7 +41,6 @@ $CLASS('ClassDotJS', function(me, SELF){
     	// name (here, ClassDotJS) or 'SELF'.
     	// public members are accessed by 'me'.
     	// private members are accessed directly.
-
     	console.log(ClassDotJS.getByeWords(
     		me.name, m_bye_count));
     	addByeCountBy(1);
