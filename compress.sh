@@ -1,0 +1,1 @@
+uglifyjs --comments -- class.js > class.min.js
