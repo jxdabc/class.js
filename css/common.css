@@ -79,6 +79,8 @@ body
 
 	cursor: pointer;
 
+	text-decoration: none;
+
 	background-color: rgb(90,95,100);
 }
 
@@ -161,6 +163,20 @@ body
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd9239', endColorstr='#a27528',GradientType=0 );
 }
 
+.block.bright .title
+{
+	background-color: #9e2812;
+	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#9e2812), to(#6f0d0d));
+	background-image: -webkit-linear-gradient(top, #9e2812 0%, #6f0d0d 100%);
+	background-image: -moz-linear-gradient(top, #9e2812 0%, #6f0d0d 100%);
+	background-image: -o-linear-gradient(top, #9e2812 0%, #6f0d0d 100%);
+	background-image: linear-gradient(to bottom, #9e2812 0%,#6f0d0d 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9e2812', endColorstr='#6f0d0d',GradientType=0 );
+}
+
+
+
 .block .title:before 
 {
 	content: "";
@@ -177,6 +193,11 @@ body
 .block.darken .title:before  
 {
 	border-color: transparent #664719 #664719 transparent;
+}
+
+.block.bright .title:before  
+{
+	border-color: transparent #6f0d0d #6f0d0d transparent;
 }
 
 .block .title h5, .block .title p 
@@ -205,7 +226,7 @@ body
 	margin: 1em 0;
 	text-shadow: rgba(0, 0, 0, 0.498039) 0px 1px 3px;
 	font-size: 28px;
-	line-height: 28px;
+	line-height: 28	px;
 	color: #444;
 }
 

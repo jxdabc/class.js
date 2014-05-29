@@ -1,4 +1,4 @@
-// namespace class.  
+// a namespace class.  
 $CLASS('DEMO', function(me, SELF){ 
 }); 
 

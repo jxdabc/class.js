@@ -1,0 +1,47 @@
+// a namespace class.   
+$CLASS('DEMO', function(me, SELF){  
+});  
+
+$CLASS('DEMO.Science', function(me, SELF){
+});
+
+$CLASS('DEMO.ComputerScience', 
+$EXTENDS(DEMO.Science),
+function(me, SELF){
+});
+
+$CLASS('DEMO.Art', function(me, SELF){
+});
+
+$CLASS('DEMO.Programming', 
+$EXTENDS(DEMO.ComputerScience, DEMO.Art),
+function(me, SELF){
+});
+
+// Each class owns a property called parent_classes,
+// which is an array of the classes from which this
+// class is derived from. 
+// outputs 'DEMO.ComputerScience' 'DEMO.Art'
+console.log(
+	DEMO.Programming.parent_classes[0].classname,
+	DEMO.Programming.parent_classes[1].classname);
+
+// This function graphs the inheritance hierarchy
+// of a class in a reversed tree. 
+function graphHierarchy(cls, indent) {
+	indent = indent || 0;
+	var indent_text = '';
+	for (var i = 0; i < indent; i++) indent_text = indent_text + '-';
+	console.log(indent_text + cls.classname);
+	for (var i = 0; i < cls.parent_classes.length; i++)
+		graphHierarchy(cls.parent_classes[i], indent + 2);
+}
+// outputs:
+//
+// DEMO.Programming
+// --DEMO.ComputerScience
+// ----DEMO.Science
+// ------XObject
+// --DEMO.Art
+// ----XObject
+graphHierarchy(DEMO.Programming);

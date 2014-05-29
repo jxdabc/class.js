@@ -1,18 +1,70 @@
-// namespace class.   
+// a namespace class.   
 $CLASS('DEMO', function(me, SELF){  
 });  
 
 // a base class
-$CLASS('DEMO.SimpleMath', function(me, SELF){ 
+$CLASS('DEMO.Math', function(me, SELF){ 
 })
 .$STATIC_VAR({
 	'PI' : 3.14, 
 }); 
 
-$CLASS('DEMO.SimpleMath.Point', function(me, SELF){
+$CLASS('DEMO.Math.Point', function(me, SELF){
+	$PUBLIC_VAR({
+		'x' : 0,
+		'y' : 0,
+	});
 
+	$CONSTRUCTOR(function(x,y){
+		me.x = x;
+		me.y = y;
+	});
 });
 
 // a derived class
-$CLASS('DEMO.ComplexMath', function(me, SELF){ 
+$CLASS('DEMO.Geometry', 
+$EXTENDS(DEMO.Math),
+function(me, SELF){
+	$PUBLIC_FUN([
+		'getAreaOfCircle',
+		'getMiddlePointOfSegment',
+	]);
+
+	$PUBLIC_FUN_IMPL('getAreaOfCircle', function(radius) {
+		// access static member PI of DEMO.Math
+		// through DEMO.Geometry which is a derived class
+		// of DEMO.Math.
+		return SELF.PI * radius * radius;
+	});
+
+	$PUBLIC_FUN_IMPL('getMiddlePointOfSegment', function(pt_start, pt_end){
+		// access class Point in namespace DEMO.Math
+		// through DEMO.Geometry which is a derived class
+		// of DEMO.Math.
+		return new SELF.Point 
+			( (pt_start.x + pt_end.x) / 2,
+			  (pt_start.y + pt_end.y) / 2 );
+	});
 });
+
+var geometry = new DEMO.Geometry();
+var area = geometry.getAreaOfCircle(1);
+console.log(area);
+
+// access class Point in namespace DEMO.Math
+// through DEMO.Geometry which is a derived class
+// of DEMO.Math.
+var middle_point = 
+	geometry.getMiddlePointOfSegment(
+		new DEMO.Geometry.Point(1,1),
+		new DEMO.Geometry.Point(2,2));
+console.log(middle_point.x, middle_point.y);
+
+// Modifies through derived classes are accessible 
+// through parent classes and vice versa.
+DEMO.Geometry.PI = 3.1415;
+// outputs 3.1415
+console.log(DEMO.Math.PI);
+DEMO.Math.PI = 3.1415926;
+// outputs 3.1415926
+console.log(DEMO.Geometry.PI);

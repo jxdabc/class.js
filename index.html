@@ -20,11 +20,12 @@
 		<script type="text/javascript" src="js/code.js"></script>
 	</head>
 	<body>
+		<a href="https://github.com/jxdabc/class.js"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
 		<div id="nav">
 			<div class="static-width">
 				<div id="logo"><b>CLASS.JS</b></div>
 				<a class="menu-item active">Guide</a>
-				<a class="menu-item">Reference</a>
+				<a class="menu-item">Reference (on its way)</a>
 			</div>
 		</div>
 		<div id="summary">
@@ -32,7 +33,7 @@
 				<div id="project-name">CLASS.JS <a class="label radius">1.0.1</a></div>
 				<div id="slogan">Make JavaScript fully intuitively object-oriented to support large scale programming.</div>
 				
-				<a class="button radius button-red">DOWNLOAD NOW</a>
+				<a href="https://github.com/jxdabc/class.js" class="button radius button-red">DOWNLOAD NOW</a>
 				<div id="compatible_list">
 					COMPATIBLE WITH: 
 					<img class="compatible_icon" src="images/ie9_small.png"></img> IE9+
@@ -54,7 +55,7 @@
 
 				<p>We suffered a lot from the limited ability of the language to intuitively/naturally describe some important object-oriented concepts and patterns when we were porting a desktop version direct UI library in C++ to a web version in JavaScript recently. These concepts and patterns had to be implemented via various work-around due to the limited describing ability of the constructor/prototype model, which nearly drived us mad. </p>
 
-				<p>Constructor/prototype model is lack of many important object-oriented concepts, such as <span class="point">private properties and methods</span>, <span class="point">an independent parent part for individual objects</span> (that is, each object of the same class that is derived from a specific parent class cannot have its own parent part, which may be constructed with different initializing arguments, since they share the same parent object called the prototype, which is constructed fairly early), <span class="point">accessing parent class methods which are overridden by a derived class method</span>, <span class="point">multi-inheritance*</span>, <span class="point">static property and method scopes</span> (which means a parent class static member cannot be accessed through a derived class), <span class="point">inner classes</span> and so on. </p>
+				<p>Constructor/prototype model is lack of many important object-oriented concepts, such as <span class="point">private properties and methods</span>, <span class="point">an independent parent part for individual objects</span> (that is, each object of the same class that is derived from a specific parent class cannot have its own parent part, which may be constructed with different initializing arguments, since they share the same parent object called the prototype, which is constructed fairly early), <span class="point">accessing parent class methods which are overridden by a derived class method</span>, <span class="point">multi-inheritance*</span>, <span class="point">static property and method scopes</span> (which means a parent class static member cannot be accessed through a derived class) and so on. </p>
 
 				<p>Efforts were made to address those issues by developers, such as simulating private member behaviors using closure scopes which really works and is widely used, constructing objects by directly calling constructors instead of using a <i>new</i> operator which brings multi-inheritance ability to the language and makes parent parts of individual objects independent but makes overridden methods no longer accessible as a side effect, and so on. Unfortunately, no one has an idea so far about how to make JavaScript completely an intuitive object-oriented language and no one knows a way so far to address all the issues mentioned above. </p>
 
@@ -153,5 +154,66 @@
 			</div>
 		</div>
 
+		<div id ="inheritance" class="block darken static-width radius">
+			<div class="title">
+				<h5>Reflection</h5>
+				<p>Brian Cantwell Smith in 1982. </p>
+			</div>
+			<div class="content">
+				<div class="clearfix">
+					<p>Reflection is not a necessary part when talking about object-oriented programming, but it is for JavaScript. Reflection is the key to code overloaded functions in dynamic-typed languages and the key to many advanced coding techniques. </p>
+					<p>Class.js provides both extensible reflection and concise reflection to support advanced usage and make life of developers easy at the same time. </p>
+
+					<div class="subtitle">Classname and classobj</div>
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/reflection_classname_classobj_js.txt"></pre>
+					</div>
+
+					<div class="subtitle">Inheritance hierarchy reflection</div>
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/reflection_inheritance_hierarchy_js.txt"></pre>
+					</div>
+
+					<div class="subtitle">Concise reflection</div>
+					<p>In class.js, every class is directly or indirectly derived from XObject, which provides methods for concise reflection.</p>
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/reflection_concise_js.txt"></pre>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id ="enumeration" class="block darken static-width radius">
+			<div class="title">
+				<h5>Enumeration</h5>
+				<p>Care guys who use class.js!</p>
+			</div>
+			<div class="content">
+				<div class="clearfix">
+					<p>Enumerations can be described as classes and their static instances. To be considerable, class.js takes on this heavy burden by providing a concise way to describe enumerations. </p>
+					<div class="code" >
+						<div class="des"></div>
+						<pre class="brush:js" data-code="code/enumeration_concise_js.txt"></pre>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id ="more" class="block bright static-width radius">
+			<div class="title">
+				<h5>More than above!</h5>
+				<p>Class.js is more powerful than what you have seen. </p>
+			</div>
+			<div class="content">
+				<div class="clearfix">
+					<p>What you have seen is only a skeleton of class.js. class.js is more powerful than that. Please refer to the reference page for more details. </p>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

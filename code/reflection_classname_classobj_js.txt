@@ -1,0 +1,19 @@
+// a namespace class.   
+$CLASS('DEMO', function(me, SELF){  
+});  
+
+$CLASS('DEMO.Teacher', function(me, SELF){
+});
+
+// Each class owns a property called classname,
+// which is the full name of the class.
+// outputs 'DEMO.Teacher'. 
+console.log(DEMO.Teacher.classname);
+
+// Each object owns a property called classobj,
+// which refers to the class from which this object is built.
+// together with classname, it is easy to get the name of
+// the class from which an object is built. 
+// outputs 'DEMO.Teacher'.
+var o = new DEMO.Teacher;
+console.log(o.classobj.classname);

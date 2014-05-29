@@ -1,0 +1,43 @@
+// a namespace class.   
+$CLASS('DEMO', function(me, SELF){  
+});  
+
+// class.js provides two flavors of describing enumeration. 
+
+// The first flavor of describing enumeration. 
+$ENUM('DEMO.Feature', [
+	'INTUITIVE',
+	'NATURAL',
+	'CONCISE',
+]);
+
+// usage. 
+var feature1 = DEMO.Feature.INTUITIVE;
+var feature2 = DEMO.Feature.NATURAL;
+var feature3 = DEMO.Feature.CONCISE;
+var feature4 = DEMO.Feature.INTUITIVE;
+// outputs false. 
+console.log(feature1 == feature2);
+// outputs true.
+console.log(feature1 == feature4); 
+// outputs 'INTUITIVE'. 
+console.log(feature1.name);
+
+// The second flavor of describing enumeration. 
+$ENUM('DEMO.Student', {
+	'Leo' 	: '20140011',
+	'Mary' 	: '20140155',
+	'John' 	: '20141183',
+});
+
+// usage
+var student1 = DEMO.Student.Leo;
+var student2 = DEMO.Student.Mary;
+var student3 = DEMO.Student.John;
+var student4 = DEMO.Student.Leo;
+// outputs false. 
+console.log(student1 == student2);
+// outputs true.
+console.log(student1 == student4); 
+// outputs '20140011'. 
+console.log(student1);

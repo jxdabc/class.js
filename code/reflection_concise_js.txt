@@ -1,0 +1,48 @@
+// a namespace class.   
+$CLASS('DEMO', function(me, SELF){  
+});  
+
+$CLASS('DEMO.Science', function(me, SELF){
+});
+
+$CLASS('DEMO.ComputerScience', 
+$EXTENDS(DEMO.Science),
+function(me, SELF){
+});
+
+$CLASS('DEMO.Art', function(me, SELF){
+});
+
+$CLASS('DEMO.Programming', 
+$EXTENDS(DEMO.ComputerScience, DEMO.Art),
+function(me, SELF){
+});
+
+var o = new DEMO.Programming();
+var p = new DEMO.ComputerScience();
+
+// getClassName returns the full name of the
+// class from which the calling object is built. 
+// outputs 'DEMO.Programming'
+console.log(o.getClassName());
+
+// instanceOf determines whether the calling object is an instance
+// of a class. That is, it determines whether the class from which the 
+// calling object is built is the specified class or has an ancestor 
+// class that is the specified class. 
+
+// outputs true. 
+console.log(o.instanceOf('DEMO.Art'));
+// or
+console.log(o.instanceOf(DEMO.Art));
+
+// outputs false
+console.log(p.instanceOf('DEMO.Art'));
+// or
+console.log(p.instanceOf(DEMO.Art));
+
+// toString prints the type information
+// of the calling object in the format
+// 'XObject: <classname>'.
+// outputs 'XObject: DEMO.Programming'.
+console.log(o.toString());
