@@ -14,6 +14,25 @@
 	line-height: 40px;
 }
 
+#share_buttons
+{
+	float: right;
+	margin-top: 4px;
+	margin-right: 6px;
+	text-shadow: none;
+}
+
+#at20mc
+{
+	text-shadow: none;
+}
+
+#menu
+{
+	position: absolute;
+	left: 50px;
+}
+
 #logo
 {
 	color: #FFF;
@@ -53,7 +72,7 @@
 
 #compatible_list
 {
-	padding: 20px 0;
+	margin-top: 30px;
 	color: #FFF;
 }
 
@@ -61,13 +80,13 @@
 {
 	vertical-align: middle;
 	margin-left:15px;
-	width: 55px;
-	height: 55px;
+	width: 50px;
+	height: 50px;
 }
 
 #compatible_list #nodejs_icon
 {
-	width: 160px;
+	width: 150px;
 }
 
 .block .content .point
